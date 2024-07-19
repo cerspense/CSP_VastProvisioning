@@ -15,7 +15,7 @@ NODES=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://www.dropbox.com/scl/fi/g8oxsmmchrhrs1i3doepn/realismBYSTABLEYOGI_v4LCM.safetensors?rlkey=728p3mmvvvd5kury6k8f36re1&st=ncg6fyyi&dl=1"
+    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
@@ -42,11 +42,6 @@ CONTROLNET_MODELS=(
     "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth"
 )
 
-# New section for AnimateDiff models
-ANIMATEDIFF_MODELS=(
-    "https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v.ckpt"
-)
-
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
@@ -71,9 +66,6 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
-    provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/animatediff_models" \
-        "${ANIMATEDIFF_MODELS[@]}"
     provisioning_print_end
 }
 
